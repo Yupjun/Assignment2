@@ -2,7 +2,9 @@ Rails.application.routes.draw do
 
   get 'sessions/new'
   get 'users/new'
-  resources :users, only: [:new, :create]
+  resources :users, only: [:new, :create, :edit,]
+  get 'users/moder'
+  #get ''
   resources :sessions, only: [:new, :create, :destroy]
   root 'contents#index'
   resources :contents do

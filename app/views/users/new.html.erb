@@ -4,5 +4,13 @@
   Email: <%= f.email_field :email %> <br>
   Password: <%= f.password_field :password %><br>
   password Confirmination <%= f.password_field :password_confirmation %> <br>
+  Nickname: <%= f.text_field :nickname %><br>
+  Gender: <% f.label :gender %>
+  <%= f.label :gender, 'male' %>
+  <%= f.radio_button :gender, 'male', :checked => true %>
+  <%= f.label :gender, 'female' %>
+  <%= f.radio_button :gender, 'female' %><br>
+  <%= f.date_select :birth_date, :start_year=>1900,:end_year=>2020  %><br>
+
   <%= f.submit '회원가입 하시겠습니까?'%>
 <% end %>
