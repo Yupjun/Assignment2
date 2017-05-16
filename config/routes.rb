@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   get 'sessions/new'
   get 'users/new'
   resources :users, only: [:new, :create, :edit,]
-  get 'users/moder'
+  get 'users/moder', as: "moder_user"
   #get ''
   resources :sessions, only: [:new, :create, :destroy]
   root 'contents#index'

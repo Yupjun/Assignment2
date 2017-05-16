@@ -22,6 +22,7 @@ class UsersController < ApplicationController
   end
   
   def moder
+    current_user.remove_role :admin
     current_user.add_role :moder
     redirect_to contents_path
   end
