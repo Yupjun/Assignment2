@@ -4,8 +4,7 @@ class ContentsController < ApplicationController
   
   def index
     @contents = Content.all
-    
-    
+    @categories = Category.all
   end
 
   def show
@@ -52,7 +51,7 @@ class ContentsController < ApplicationController
   end
   
   def content_params
-    params.require(:content).permit(:title, :body,:user_id)
+    params.require(:content).permit(:title, :body, :nickname, :user_id, :campus, :category_id)
   end
   
   

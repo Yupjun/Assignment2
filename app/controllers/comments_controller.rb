@@ -1,4 +1,7 @@
 class CommentsController < ApplicationController
+  before_action :authorize, only: [:new, :edit, :update, :destory]
+  load_and_authorize_resource
+  
   def create
     @content = Content.find(params[:content_id])
     @comment = @content.comments.new(comment_params)

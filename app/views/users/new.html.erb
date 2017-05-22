@@ -10,6 +10,11 @@
   <%= f.radio_button :gender, 'male', :checked => true %>
   <%= f.label :gender, 'female' %>
   <%= f.radio_button :gender, 'female' %><br>
+  Campus: <% f.label :campus %>
+  <%= f.label :campus, 'Liberal Arts(문돌이)' %>
+  <%= f.radio_button :campus, 'liberal_arts', :checked => true %>
+  <%= f.label :campus, 'Natural_science(이돌이)' %>
+  <%= f.radio_button :campus, 'natural_science' %><br>
   <%= f.date_select :birth_date, :start_year=>1900,:end_year=>2020  %><br>
 
   <%= f.submit '회원가입 하시겠습니까?'%>

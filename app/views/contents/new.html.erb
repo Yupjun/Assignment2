@@ -1,7 +1,10 @@
 <h1>Contents#new</h1>
 <p>Find me in app/views/contents/new.html.erb</p>
 <%= form_for @content do |f| %>
-    <%= f.hidden_field :user_id, value: current_user.id %>
+    <%= f.hidden_field :user_id, value: @current_user[:id] %>
+    <%= f.hidden_field :campus, value: @current_user[:campus] %>
+    <%= f.hidden_field :nickname, value: @current_user[:nickname] %>
+    <%= f.select :category_id, options_from_collection_for_select(Category.all, "id", "name") %><br>
     <%= f.label :title, '제목' %>
     <%= f.text_field :title %><br>
     <%= f.label :body, '내용' %>

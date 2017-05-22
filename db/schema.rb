@@ -11,9 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170513063737) do
+ActiveRecord::Schema.define(version: 20170521175038) do
+
+  create_table "categories", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "comments", force: :cascade do |t|
+    t.integer  "user_id"
     t.integer  "content_id"
     t.text     "body"
     t.datetime "created_at", null: false
@@ -21,11 +28,14 @@ ActiveRecord::Schema.define(version: 20170513063737) do
   end
 
   create_table "contents", force: :cascade do |t|
+    t.integer  "category_id"
+    t.string   "campus"
     t.string   "title"
     t.text     "body"
     t.integer  "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "nickname"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "moders", force: :cascade do |t|
@@ -44,11 +54,18 @@ ActiveRecord::Schema.define(version: 20170513063737) do
   add_index "roles", ["name", "resource_type", "resource_id"], name: "index_roles_on_name_and_resource_type_and_resource_id"
   add_index "roles", ["name"], name: "index_roles_on_name"
 
+  create_table "searches", force: :cascade do |t|
+    t.string   "search"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.string   "email"
     t.string   "password_digest"
     t.string   "nickname"
     t.string   "gender"
+    t.string   "campus"
     t.datetime "birth_date"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false

@@ -1,4 +1,17 @@
 Rails.application.routes.draw do
+  
+  
+  namespace :search do
+    resources :searches, :collection => { :index => :get, :find => :get }
+  end
+  match 'searches', to: 'search#index', via: :get
+  match 'searches',      to: 'search#index',           via: 'get'
+  match 'searches',      to: 'search#index',        via: 'post'
+  post 'search/index'
+  get 'search/index'
+  get 'serach/find'
+  post 'search/find'
+  
 
   get 'sessions/new'
   get 'users/new'
