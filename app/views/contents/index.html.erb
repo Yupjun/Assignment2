@@ -8,7 +8,6 @@
 
 <% @contents.each do |content| %>
     <!--<a href='/contents/<%#= content.id %>' style='text-decoration: none; color: black'><%#= content.title %></a>-->
-    카테고리:<%= content.category.name %>
     <a href='<%= content_path(content) %>' style='text-decoration: none; color: black'>제목:<%= content.title %></a>
     작성자:<%= content.user.email %>
     캠퍼스:<%= content.user.campus %>
