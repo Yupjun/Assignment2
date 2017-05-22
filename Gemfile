@@ -39,6 +39,7 @@ gem 'rails_12factor', group: :production
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
+  gem 'sqlite3'
 end
 
 group :development do
@@ -49,8 +50,11 @@ group :development do
   gem 'spring'
 end
 
-group :development, :test do 
-  gem 'sqlite3'
+group :production do
+  gem 'pg'
+  gem 'rails_12factor'
 end
 
-gem 'pg'
+gem 'rails_12factor', group: :production
+gem 'sqlite3', group: :development
+gem 'pg', group: :production
