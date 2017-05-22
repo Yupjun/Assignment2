@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   
-  
+  ###루트정리
   namespace :search do
     resources :searches, :collection => { :index => :get, :find => :get }
   end
